@@ -48,7 +48,7 @@ Next, build the database and execute the migrations with:
 ```
 # "symfony console" is equivalent to "bin/console"
 # but it's aware of your database container
-symfony console doctrine:database:create
+symfony console doctrine:database:create --if-not-exists
 symfony console doctrine:schema:update --force
 symfony console doctrine:fixtures:load
 ```
@@ -74,7 +74,7 @@ Then, to start the web server, open a terminal, move into the
 project, and run:
 
 ```
-symfony serve
+symfony serve -d
 ```
 
 (If this is your first time using this command, you may see an
