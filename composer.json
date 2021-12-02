@@ -23,7 +23,7 @@
         "symfony/yaml": "5.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "zenstruck/foundry": "@dev"
+        "zenstruck/foundry": "^1.14.1"
     },
     "config": {
         "optimize-autoloader": true,
