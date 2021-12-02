@@ -14,6 +14,12 @@ Well hi there! This repository holds the code that you'll need for the
 
 Ok, let's get this code running!
 
+**Clone this repository**
+
+Start by cloning this repository - using whatever your favorite method
+of doing that is. Then, open a terminal, move into the project, and
+keep going!
+
 **Download Composer dependencies**
 
 Make sure you have [Composer installed](https://getcomposer.org/download/)
