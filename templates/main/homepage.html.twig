@@ -2,10 +2,18 @@
 
 {% block body %}
     <div class="py-5 text-center">
-    <h1>Hey there {{ app.user.email }}!</h1>
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <h1>Hey there {{ app.user.email }}!</h1>
+        {% else %}
+            <h1>Hey Stranger!</h1>
+        {% endif %}
 
     <p>
-        Whelp, there's nothing else to see. Have a cool day!
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            Whelp, there's nothing else to see. Have a cool day!
+        {% else %}
+            I guess you can <a href="{{ path('app_login') }}">Log In</a> if you want!
+        {% endif %}
     </p>
     </div>
 {% endblock %}
