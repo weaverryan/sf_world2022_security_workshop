@@ -13,7 +13,11 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body class="bg-light">
+        <div class="container">
+            <main>
+                {% block body %}{% endblock %}
+            </main>
+        </div>
     </body>
 </html>
