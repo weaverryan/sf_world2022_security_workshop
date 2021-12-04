@@ -1,4 +1,4 @@
-# Symfony World: Adventurs through Security Workshop
+# Symfony World: Adventures through Security Workshop
 
 Well hi there! This repository holds the code that you'll need for the
 "Symfony Security in Depth" workshop at SymfonyWorld 2021 Winter.
