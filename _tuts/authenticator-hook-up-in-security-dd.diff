@@ -1,0 +1,27 @@
+diff --git a/config/packages/security.yaml b/config/packages/security.yaml
+index aa8b218..0167db0 100644
+--- a/config/packages/security.yaml
++++ b/config/packages/security.yaml
+@@ -21,6 +21,9 @@ security:
+             lazy: true
+             provider: app_user_provider
+ 
++            custom_authenticators:
++                - App\Security\QueryParamsAuthenticator
++
+             login_throttling:
+                 max_attempts: 3
+ 
+diff --git a/src/Security/QueryParamsAuthenticator.php b/src/Security/QueryParamsAuthenticator.php
+index 899129e..4e8128e 100644
+--- a/src/Security/QueryParamsAuthenticator.php
++++ b/src/Security/QueryParamsAuthenticator.php
+@@ -14,7 +14,7 @@ class QueryParamsAuthenticator extends AbstractAuthenticator
+ {
+     public function supports(Request $request): ?bool
+     {
+-        // TODO: Implement supports() method.
++        dd('I am being called!');
+     }
+ 
+     public function authenticate(Request $request)

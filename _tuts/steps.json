@@ -1,0 +1,75 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "form-login-enable-it",
+            "name": "form_login: Enable it",
+            "description": null
+        },
+        {
+            "id": "form-login-configure-check-path",
+            "name": "form_login: configure check_path",
+            "description": null
+        },
+        {
+            "id": "form-login-configure-username-parameter",
+            "name": "form_login: configure username_parameter",
+            "description": null
+        },
+        {
+            "id": "newsystem-activate-new-system",
+            "name": "NewSystem: activate new system",
+            "description": null
+        },
+        {
+            "id": "newsystem-remove-anonymous",
+            "name": "NewSystem: Remove anonymous",
+            "description": null
+        },
+        {
+            "id": "throttling-activate-login-throttling",
+            "name": "Throttling: Activate login_throttling",
+            "description": null
+        },
+        {
+            "id": "throttling-install-rate-limiter",
+            "name": "Throttling: Install rate-limiter",
+            "description": null
+        },
+        {
+            "id": "authenticator-create-queryparamsauthenticator",
+            "name": "Authenticator: Create QueryParamsAuthenticator",
+            "description": null
+        },
+        {
+            "id": "authenticator-extend-abstract-class",
+            "name": "Authenticator: extend abstract class",
+            "description": null
+        },
+        {
+            "id": "authenticator-hook-up-in-security-dd",
+            "name": "Authenticator: hook up in security + dd()",
+            "description": null
+        },
+        {
+            "id": "authenticator-fill-in-supports",
+            "name": "Authenticator: fill in supports()",
+            "description": null
+        },
+        {
+            "id": "authenticator-fill-in-authenicate",
+            "name": "Authenticator: fill in authenicate()",
+            "description": null
+        },
+        {
+            "id": "authenticator-custom-user-loader",
+            "name": "Authenticator: Custom user loader",
+            "description": null
+        }
+    ],
+    "sha": "275148e795044228262ceb3bdd52b06808a8885d"
+}

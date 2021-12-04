@@ -1,0 +1,14 @@
+diff --git a/config/packages/security.yaml b/config/packages/security.yaml
+index 7745d03..aa8b218 100644
+--- a/config/packages/security.yaml
++++ b/config/packages/security.yaml
+@@ -21,6 +21,9 @@ security:
+             lazy: true
+             provider: app_user_provider
+ 
++            login_throttling:
++                max_attempts: 3
++
+             logout: true
+ 
+             form_login:

@@ -1,0 +1,15 @@
+diff --git a/src/Security/QueryParamsAuthenticator.php b/src/Security/QueryParamsAuthenticator.php
+new file mode 100644
+index 0000000..ad2d400
+--- /dev/null
++++ b/src/Security/QueryParamsAuthenticator.php
+@@ -0,0 +1,9 @@
++<?php
++
++namespace App\Security;
++
++use Symfony\Component\Security\Http\Authenticator\AuthenticatorInterface;
++
++class QueryParamsAuthenticator implements AuthenticatorInterface
++{
++}
