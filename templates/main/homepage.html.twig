@@ -10,7 +10,8 @@
 
     <p>
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-            Whelp, there's nothing else to see. Have a cool day!
+            Whelp, there's nothing else to see. Have a cool day... or
+            <a href="{{ path('app_security_logout') }}">log out!</a>
         {% else %}
             I guess you can <a href="{{ path('app_login') }}">Log In</a> if you want!
         {% endif %}
