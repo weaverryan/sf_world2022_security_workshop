@@ -4,6 +4,10 @@
     <div class="py-5 text-center">
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             <h1>Hey there {{ app.user.email }}!</h1>
+            <span>
+                <strong>Last Login Date:</strong>
+                {{ app.user.lastLoggedInAt ? app.user.lastLoggedInAt|ago : 'unknown' }}
+            </span>
         {% else %}
             <h1>Hey Stranger!</h1>
         {% endif %}

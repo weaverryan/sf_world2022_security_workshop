@@ -42,6 +42,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $totpSecret;
 
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private $lastLoggedInAt;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -151,6 +156,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTotpSecret(?string $totpSecret): self
     {
         $this->totpSecret = $totpSecret;
+
+        return $this;
+    }
+
+    public function getLastLoggedInAt(): ?\DateTimeImmutable
+    {
+        return $this->lastLoggedInAt;
+    }
+
+    public function setLastLoggedInAt(?\DateTimeImmutable $lastLoggedInAt): self
+    {
+        $this->lastLoggedInAt = $lastLoggedInAt;
 
         return $this;
     }
