@@ -23,5 +23,16 @@ class ApiFunctionalTest extends KernelTestCase
         ;
         $data = json_decode($browser->response()->body(), true);
         dd($data);
+
+        $this->browser()
+            ->get('/api/me', [
+                'headers' => [
+                    'Authorization' => 'Bearer '.$data['token']
+                ]
+            ])
+            ->assertSuccessful()
+            ->assertJson()
+            ->assertJsonMatches('email', 'wouter@example.com')
+        ;
     }
 }
