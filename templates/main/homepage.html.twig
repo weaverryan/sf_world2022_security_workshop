@@ -12,7 +12,7 @@
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
             Whelp, there's nothing else to see. Have a cool day... or
             <a href="{{ path('app_security_logout') }}">log out</a>...or
-            <a href="{{ path('app_enable_2fa') }}">Enable 2fa</a>
+            <a href="{{ path('app_2fa_enable') }}">Enable 2fa</a>
         {% else %}
             I guess you can <a href="{{ path('app_login') }}">Log In</a> if you want!
         {% endif %}
