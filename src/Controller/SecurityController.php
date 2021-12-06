@@ -44,6 +44,14 @@ class SecurityController extends AbstractController
             $entityManager->flush();
         }
 
-        dd($user);
+        return $this->render('security/enable2fa.html.twig');
+    }
+
+    /**
+     * @Route("/authentication/2fa/qr-code", name="app_qr_code")
+     */
+    public function displayGoogleAuthenticatorQrCode()
+    {
+        die('TODO!');
     }
 }
