@@ -10,7 +10,7 @@ class ApiController extends AbstractController
 {
     /**
      * @Route("/api/me", name="api_me")
-     * @IsGranted()
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function apiMe()
     {
