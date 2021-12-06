@@ -1,8 +1,8 @@
 diff --git a/composer.json b/composer.json
-index 69be5d8..1892630 100644
+index f66866f..8826d48 100644
 --- a/composer.json
 +++ b/composer.json
-@@ -15,6 +15,7 @@
+@@ -16,6 +16,7 @@
          "lcobucci/jwt": "^4.1",
          "phpdocumentor/reflection-docblock": "^5.3",
          "phpstan/phpdoc-parser": "^1.2",
@@ -11,19 +11,19 @@ index 69be5d8..1892630 100644
          "symfony/dotenv": "5.4.*",
          "symfony/flex": "^1.17|^2",
 diff --git a/composer.lock b/composer.lock
-index 8d0f268..6e8b0a4 100644
+index 0588350..8f9b3b3 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "0cd4d456b01d42a7cd8994adaeab8a23",
-+    "content-hash": "a8b6ad38b4022b3edb5beb9b18031663",
+-    "content-hash": "dc817d85e26e803b5b6b3b98e29fd4e1",
++    "content-hash": "1274d8eec1d17435b303ae04a44accd9",
      "packages": [
          {
              "name": "composer/package-versions-deprecated",
-@@ -2180,6 +2180,74 @@
+@@ -2253,6 +2253,74 @@
              },
              "time": "2021-07-14T16:41:46+00:00"
          },
@@ -99,13 +99,13 @@ index 8d0f268..6e8b0a4 100644
              "name": "symfony/asset",
              "version": "v5.4.0",
 diff --git a/config/bundles.php b/config/bundles.php
-index a70cb50..c5adb31 100644
+index 3793434..188b57a 100644
 --- a/config/bundles.php
 +++ b/config/bundles.php
-@@ -15,4 +15,5 @@ return [
-     Symfony\Bundle\MonologBundle\MonologBundle::class => ['all' => true],
+@@ -16,4 +16,5 @@ return [
      Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
      Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
+     Knp\Bundle\TimeBundle\KnpTimeBundle::class => ['all' => true],
 +    Scheb\TwoFactorBundle\SchebTwoFactorBundle::class => ['all' => true],
  ];
 diff --git a/config/packages/scheb_2fa.yaml b/config/packages/scheb_2fa.yaml
@@ -136,10 +136,10 @@ index 0000000..b574a0c
 +2fa_login_check:
 +    path: /2fa_check
 diff --git a/symfony.lock b/symfony.lock
-index 5719e02..d79d902 100644
+index 14141f7..8bd9954 100644
 --- a/symfony.lock
 +++ b/symfony.lock
-@@ -189,6 +189,19 @@
+@@ -192,6 +192,19 @@
      "psr/log": {
          "version": "2.0.0"
      },

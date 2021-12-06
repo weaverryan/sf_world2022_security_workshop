@@ -1,0 +1,18 @@
+diff --git a/src/EventListener/LastLoggedInAtSubscriber.php b/src/EventListener/LastLoggedInAtSubscriber.php
+new file mode 100644
+index 0000000..a11cac1
+--- /dev/null
++++ b/src/EventListener/LastLoggedInAtSubscriber.php
+@@ -0,0 +1,12 @@
++<?php
++
++namespace App\EventListener;
++
++use Symfony\Component\EventDispatcher\EventSubscriberInterface;
++
++class LastLoggedInAtSubscriber implements EventSubscriberInterface
++{
++    public static function getSubscribedEvents()
++    {
++    }
++}

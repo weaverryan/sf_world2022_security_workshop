@@ -1,0 +1,12 @@
+diff --git a/src/Controller/SecurityController.php b/src/Controller/SecurityController.php
+index 8ba97b0..581f27b 100644
+--- a/src/Controller/SecurityController.php
++++ b/src/Controller/SecurityController.php
+@@ -44,7 +44,6 @@ class SecurityController extends AbstractController
+             $entityManager->flush();
+         }
+ 
+-        dd($this->getUser());
+         return $this->render('security/enable2fa.html.twig');
+     }
+ 

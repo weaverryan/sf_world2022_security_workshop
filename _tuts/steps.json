@@ -164,7 +164,52 @@
             "id": "2fa-add-twofactorinterface",
             "name": "2fa: Add TwoFactorInterface",
             "description": null
+        },
+        {
+            "id": "2fa-complete-methods",
+            "name": "2fa: Complete methods",
+            "description": null
+        },
+        {
+            "id": "2fa-remove-dd",
+            "name": "2fa: Remove dd()",
+            "description": null
+        },
+        {
+            "id": "2fa-install-scheb-2fa-qr-code",
+            "name": "2fa: Install scheb\/2fa-qr-code",
+            "description": null
+        },
+        {
+            "id": "2fa-complete-qr-image-endpoint",
+            "name": "2fa: complete QR image endpoint",
+            "description": null
+        },
+        {
+            "id": "2fa-complete-2fa-link",
+            "name": "2fa: complete 2fa link",
+            "description": null
+        },
+        {
+            "id": "2fa-tweak-qr-code-contents",
+            "name": "2fa: Tweak QR code contents",
+            "description": null
+        },
+        {
+            "id": "listener-create-lastloggedinatsubscriber",
+            "name": "Listener: Create LastLoggedInAtSubscriber",
+            "description": null
+        },
+        {
+            "id": "listener-finish-logic",
+            "name": "Listener: Finish logic",
+            "description": null
+        },
+        {
+            "id": "listener-avoid-2fa",
+            "name": "Listener: Avoid 2fa",
+            "description": null
         }
     ],
-    "sha": "54a4eab7afb148f259efe1458018159c97e28b9f"
+    "sha": "d5e9cc9884eea13233d8dda49d07a55f90774c38"
 }
