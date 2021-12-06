@@ -11,7 +11,7 @@ class ApiFunctionalTest extends KernelTestCase
 
     public function testApiProcess(): void
     {
-        $this->browser()
+        $browser = $this->browser()
             ->post('/api/login', [
                 'json' => [
                     'email' => 'wouter@example.com',
@@ -21,5 +21,7 @@ class ApiFunctionalTest extends KernelTestCase
             ->assertSuccessful()
             ->assertJson()
         ;
+        $data = json_decode($browser->response()->body(), true);
+        dd($data);
     }
 }
