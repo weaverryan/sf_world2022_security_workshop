@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
+use Scheb\TwoFactorBundle\Security\TwoFactor\Provider\Totp\TotpAuthenticatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,5 +29,21 @@ class SecurityController extends AbstractController
     public function logout()
     {
         throw new \Exception('logout() should never be reached');
+    }
+
+    /**
+     * @Route("/authentication/2fa/enable", name="app_2fa_enable")
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
+     */
+    public function enable2fa(EntityManagerInterface $entityManager, TotpAuthenticatorInterface $totpAuthenticator)
+    {
+        $user = $this->getUser();
+        if (!$user->isTotpAuthenticationEnabled()) {
+            $user->setTotpSecret($totpAuthenticator->generateSecret());
+
+            $entityManager->flush();
+        }
+
+        dd($user);
     }
 }
