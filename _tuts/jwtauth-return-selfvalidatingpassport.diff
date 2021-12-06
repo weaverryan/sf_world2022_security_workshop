@@ -1,0 +1,41 @@
+diff --git a/src/Security/JwtAuthenticator.php b/src/Security/JwtAuthenticator.php
+index f7f6bfd..ce3e5d3 100644
+--- a/src/Security/JwtAuthenticator.php
++++ b/src/Security/JwtAuthenticator.php
+@@ -3,6 +3,7 @@
+ namespace App\Security;
+ 
+ use Lcobucci\JWT\Configuration;
++use Lcobucci\JWT\Token\Plain;
+ use Lcobucci\JWT\Validation\Constraint\IssuedBy;
+ use Lcobucci\JWT\Validation\Constraint\SignedWith;
+ use Symfony\Component\HttpFoundation\Request;
+@@ -11,7 +12,9 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+ use Symfony\Component\Security\Core\Exception\AuthenticationException;
+ use Symfony\Component\Security\Core\Exception\BadCredentialsException;
+ use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
++use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
+ use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
++use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPassport;
+ use function Symfony\Component\String\u;
+ 
+ class JwtAuthenticator extends AbstractAuthenticator
+@@ -35,6 +38,7 @@ class JwtAuthenticator extends AbstractAuthenticator
+ 
+         $parser = $this->configuration->parser();
+         $validator = $this->configuration->validator();
++        /** @var Plain $jwt */
+         $jwt = $parser->parse($token);
+ 
+         $constraints = [
+@@ -46,7 +50,9 @@ class JwtAuthenticator extends AbstractAuthenticator
+             throw new BadCredentialsException('Invalid token');
+         }
+ 
+-        dd($jwt);
++        return new SelfValidatingPassport(
++            new UserBadge($jwt->claims()->get('sub')),
++        );
+     }
+ 
+     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response

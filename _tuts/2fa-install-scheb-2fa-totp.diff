@@ -1,0 +1,497 @@
+diff --git a/composer.json b/composer.json
+index 1892630..89fd3f6 100644
+--- a/composer.json
++++ b/composer.json
+@@ -16,6 +16,7 @@
+         "phpdocumentor/reflection-docblock": "^5.3",
+         "phpstan/phpdoc-parser": "^1.2",
+         "scheb/2fa-bundle": "^5.13",
++        "scheb/2fa-totp": "^5.13",
+         "symfony/console": "5.4.*",
+         "symfony/dotenv": "5.4.*",
+         "symfony/flex": "^1.17|^2",
+diff --git a/composer.lock b/composer.lock
+index 6e8b0a4..2d0f730 100644
+--- a/composer.lock
++++ b/composer.lock
+@@ -4,8 +4,75 @@
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+         "This file is @generated automatically"
+     ],
+-    "content-hash": "a8b6ad38b4022b3edb5beb9b18031663",
++    "content-hash": "82ab90fb7cea873bf6fcf47e27ccc06c",
+     "packages": [
++        {
++            "name": "beberlei/assert",
++            "version": "v3.3.1",
++            "source": {
++                "type": "git",
++                "url": "https://github.com/beberlei/assert.git",
++                "reference": "5e721d7e937ca3ba2cdec1e1adf195f9e5188372"
++            },
++            "dist": {
++                "type": "zip",
++                "url": "https://api.github.com/repos/beberlei/assert/zipball/5e721d7e937ca3ba2cdec1e1adf195f9e5188372",
++                "reference": "5e721d7e937ca3ba2cdec1e1adf195f9e5188372",
++                "shasum": ""
++            },
++            "require": {
++                "ext-ctype": "*",
++                "ext-json": "*",
++                "ext-mbstring": "*",
++                "ext-simplexml": "*",
++                "php": "^7.0 || ^8.0"
++            },
++            "require-dev": {
++                "friendsofphp/php-cs-fixer": "*",
++                "phpstan/phpstan": "*",
++                "phpunit/phpunit": ">=6.0.0",
++                "yoast/phpunit-polyfills": "^0.1.0"
++            },
++            "suggest": {
++                "ext-intl": "Needed to allow Assertion::count(), Assertion::isCountable(), Assertion::minCount(), and Assertion::maxCount() to operate on ResourceBundles"
++            },
++            "type": "library",
++            "autoload": {
++                "psr-4": {
++                    "Assert\\": "lib/Assert"
++                },
++                "files": [
++                    "lib/Assert/functions.php"
++                ]
++            },
++            "notification-url": "https://packagist.org/downloads/",
++            "license": [
++                "BSD-2-Clause"
++            ],
++            "authors": [
++                {
++                    "name": "Benjamin Eberlei",
++                    "email": "kontakt@beberlei.de",
++                    "role": "Lead Developer"
++                },
++                {
++                    "name": "Richard Quadling",
++                    "email": "rquadling@gmail.com",
++                    "role": "Collaborator"
++                }
++            ],
++            "description": "Thin assertion library for input validation in business models.",
++            "keywords": [
++                "assert",
++                "assertion",
++                "validation"
++            ],
++            "support": {
++                "issues": "https://github.com/beberlei/assert/issues",
++                "source": "https://github.com/beberlei/assert/tree/v3.3.1"
++            },
++            "time": "2021-04-18T20:11:03+00:00"
++        },
+         {
+             "name": "composer/package-versions-deprecated",
+             "version": "1.11.99.4",
+@@ -1774,6 +1841,73 @@
+             ],
+             "time": "2021-09-28T19:34:56+00:00"
+         },
++        {
++            "name": "paragonie/constant_time_encoding",
++            "version": "v2.4.0",
++            "source": {
++                "type": "git",
++                "url": "https://github.com/paragonie/constant_time_encoding.git",
++                "reference": "f34c2b11eb9d2c9318e13540a1dbc2a3afbd939c"
++            },
++            "dist": {
++                "type": "zip",
++                "url": "https://api.github.com/repos/paragonie/constant_time_encoding/zipball/f34c2b11eb9d2c9318e13540a1dbc2a3afbd939c",
++                "reference": "f34c2b11eb9d2c9318e13540a1dbc2a3afbd939c",
++                "shasum": ""
++            },
++            "require": {
++                "php": "^7|^8"
++            },
++            "require-dev": {
++                "phpunit/phpunit": "^6|^7|^8|^9",
++                "vimeo/psalm": "^1|^2|^3|^4"
++            },
++            "type": "library",
++            "autoload": {
++                "psr-4": {
++                    "ParagonIE\\ConstantTime\\": "src/"
++                }
++            },
++            "notification-url": "https://packagist.org/downloads/",
++            "license": [
++                "MIT"
++            ],
++            "authors": [
++                {
++                    "name": "Paragon Initiative Enterprises",
++                    "email": "security@paragonie.com",
++                    "homepage": "https://paragonie.com",
++                    "role": "Maintainer"
++                },
++                {
++                    "name": "Steve 'Sc00bz' Thomas",
++                    "email": "steve@tobtu.com",
++                    "homepage": "https://www.tobtu.com",
++                    "role": "Original Developer"
++                }
++            ],
++            "description": "Constant-time Implementations of RFC 4648 Encoding (Base-64, Base-32, Base-16)",
++            "keywords": [
++                "base16",
++                "base32",
++                "base32_decode",
++                "base32_encode",
++                "base64",
++                "base64_decode",
++                "base64_encode",
++                "bin2hex",
++                "encoding",
++                "hex",
++                "hex2bin",
++                "rfc4648"
++            ],
++            "support": {
++                "email": "info@paragonie.com",
++                "issues": "https://github.com/paragonie/constant_time_encoding/issues",
++                "source": "https://github.com/paragonie/constant_time_encoding"
++            },
++            "time": "2020-12-06T15:14:20+00:00"
++        },
+         {
+             "name": "phpdocumentor/reflection-common",
+             "version": "2.2.0",
+@@ -2248,6 +2382,131 @@
+             },
+             "time": "2021-10-16T19:47:29+00:00"
+         },
++        {
++            "name": "scheb/2fa-totp",
++            "version": "v5.13.0",
++            "source": {
++                "type": "git",
++                "url": "https://github.com/scheb/2fa-totp.git",
++                "reference": "19dcdd80ea5c344ac8434aef278f989d4ea3c9ca"
++            },
++            "dist": {
++                "type": "zip",
++                "url": "https://api.github.com/repos/scheb/2fa-totp/zipball/19dcdd80ea5c344ac8434aef278f989d4ea3c9ca",
++                "reference": "19dcdd80ea5c344ac8434aef278f989d4ea3c9ca",
++                "shasum": ""
++            },
++            "require": {
++                "paragonie/constant_time_encoding": "^2.2",
++                "scheb/2fa-bundle": "self.version",
++                "spomky-labs/otphp": "^9.1|^10.0"
++            },
++            "type": "library",
++            "autoload": {
++                "psr-4": {
++                    "Scheb\\TwoFactorBundle\\": ""
++                }
++            },
++            "notification-url": "https://packagist.org/downloads/",
++            "license": [
++                "MIT"
++            ],
++            "authors": [
++                {
++                    "name": "Christian Scheb",
++                    "email": "me@christianscheb.de"
++                }
++            ],
++            "description": "Extends scheb/2fa-bundle with two-factor authentication using TOTP",
++            "homepage": "https://github.com/scheb/2fa",
++            "keywords": [
++                "2fa",
++                "Authentication",
++                "symfony",
++                "totp",
++                "two-factor",
++                "two-step"
++            ],
++            "support": {
++                "source": "https://github.com/scheb/2fa-totp/tree/v5.13.0"
++            },
++            "time": "2021-08-23T18:40:18+00:00"
++        },
++        {
++            "name": "spomky-labs/otphp",
++            "version": "v10.0.1",
++            "source": {
++                "type": "git",
++                "url": "https://github.com/Spomky-Labs/otphp.git",
++                "reference": "f44cce5a9db4b8da410215d992110482c931232f"
++            },
++            "dist": {
++                "type": "zip",
++                "url": "https://api.github.com/repos/Spomky-Labs/otphp/zipball/f44cce5a9db4b8da410215d992110482c931232f",
++                "reference": "f44cce5a9db4b8da410215d992110482c931232f",
++                "shasum": ""
++            },
++            "require": {
++                "beberlei/assert": "^3.0",
++                "ext-mbstring": "*",
++                "paragonie/constant_time_encoding": "^2.0",
++                "php": "^7.2|^8.0",
++                "thecodingmachine/safe": "^0.1.14|^1.0"
++            },
++            "require-dev": {
++                "php-coveralls/php-coveralls": "^2.0",
++                "phpstan/phpstan": "^0.12",
++                "phpstan/phpstan-beberlei-assert": "^0.12",
++                "phpstan/phpstan-deprecation-rules": "^0.12",
++                "phpstan/phpstan-phpunit": "^0.12",
++                "phpstan/phpstan-strict-rules": "^0.12",
++                "phpunit/phpunit": "^8.0",
++                "thecodingmachine/phpstan-safe-rule": "^1.0"
++            },
++            "type": "library",
++            "extra": {
++                "branch-alias": {
++                    "v10.0": "10.0.x-dev",
++                    "v9.0": "9.0.x-dev",
++                    "v8.3": "8.3.x-dev"
++                }
++            },
++            "autoload": {
++                "psr-4": {
++                    "OTPHP\\": "src/"
++                }
++            },
++            "notification-url": "https://packagist.org/downloads/",
++            "license": [
++                "MIT"
++            ],
++            "authors": [
++                {
++                    "name": "Florent Morselli",
++                    "homepage": "https://github.com/Spomky"
++                },
++                {
++                    "name": "All contributors",
++                    "homepage": "https://github.com/Spomky-Labs/otphp/contributors"
++                }
++            ],
++            "description": "A PHP library for generating one time passwords according to RFC 4226 (HOTP Algorithm) and the RFC 6238 (TOTP Algorithm) and compatible with Google Authenticator",
++            "homepage": "https://github.com/Spomky-Labs/otphp",
++            "keywords": [
++                "FreeOTP",
++                "RFC 4226",
++                "RFC 6238",
++                "google authenticator",
++                "hotp",
++                "otp",
++                "totp"
++            ],
++            "support": {
++                "issues": "https://github.com/Spomky-Labs/otphp/issues",
++                "source": "https://github.com/Spomky-Labs/otphp/tree/v10.0.1"
++            },
++            "time": "2020-01-28T09:24:19+00:00"
++        },
+         {
+             "name": "symfony/asset",
+             "version": "v5.4.0",
+@@ -6316,6 +6575,145 @@
+             ],
+             "time": "2021-11-28T15:25:38+00:00"
+         },
++        {
++            "name": "thecodingmachine/safe",
++            "version": "v1.3.3",
++            "source": {
++                "type": "git",
++                "url": "https://github.com/thecodingmachine/safe.git",
++                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc"
++            },
++            "dist": {
++                "type": "zip",
++                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
++                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
++                "shasum": ""
++            },
++            "require": {
++                "php": ">=7.2"
++            },
++            "require-dev": {
++                "phpstan/phpstan": "^0.12",
++                "squizlabs/php_codesniffer": "^3.2",
++                "thecodingmachine/phpstan-strict-rules": "^0.12"
++            },
++            "type": "library",
++            "extra": {
++                "branch-alias": {
++                    "dev-master": "0.1-dev"
++                }
++            },
++            "autoload": {
++                "psr-4": {
++                    "Safe\\": [
++                        "lib/",
++                        "deprecated/",
++                        "generated/"
++                    ]
++                },
++                "files": [
++                    "deprecated/apc.php",
++                    "deprecated/libevent.php",
++                    "deprecated/mssql.php",
++                    "deprecated/stats.php",
++                    "lib/special_cases.php",
++                    "generated/apache.php",
++                    "generated/apcu.php",
++                    "generated/array.php",
++                    "generated/bzip2.php",
++                    "generated/calendar.php",
++                    "generated/classobj.php",
++                    "generated/com.php",
++                    "generated/cubrid.php",
++                    "generated/curl.php",
++                    "generated/datetime.php",
++                    "generated/dir.php",
++                    "generated/eio.php",
++                    "generated/errorfunc.php",
++                    "generated/exec.php",
++                    "generated/fileinfo.php",
++                    "generated/filesystem.php",
++                    "generated/filter.php",
++                    "generated/fpm.php",
++                    "generated/ftp.php",
++                    "generated/funchand.php",
++                    "generated/gmp.php",
++                    "generated/gnupg.php",
++                    "generated/hash.php",
++                    "generated/ibase.php",
++                    "generated/ibmDb2.php",
++                    "generated/iconv.php",
++                    "generated/image.php",
++                    "generated/imap.php",
++                    "generated/info.php",
++                    "generated/ingres-ii.php",
++                    "generated/inotify.php",
++                    "generated/json.php",
++                    "generated/ldap.php",
++                    "generated/libxml.php",
++                    "generated/lzf.php",
++                    "generated/mailparse.php",
++                    "generated/mbstring.php",
++                    "generated/misc.php",
++                    "generated/msql.php",
++                    "generated/mysql.php",
++                    "generated/mysqli.php",
++                    "generated/mysqlndMs.php",
++                    "generated/mysqlndQc.php",
++                    "generated/network.php",
++                    "generated/oci8.php",
++                    "generated/opcache.php",
++                    "generated/openssl.php",
++                    "generated/outcontrol.php",
++                    "generated/password.php",
++                    "generated/pcntl.php",
++                    "generated/pcre.php",
++                    "generated/pdf.php",
++                    "generated/pgsql.php",
++                    "generated/posix.php",
++                    "generated/ps.php",
++                    "generated/pspell.php",
++                    "generated/readline.php",
++                    "generated/rpminfo.php",
++                    "generated/rrd.php",
++                    "generated/sem.php",
++                    "generated/session.php",
++                    "generated/shmop.php",
++                    "generated/simplexml.php",
++                    "generated/sockets.php",
++                    "generated/sodium.php",
++                    "generated/solr.php",
++                    "generated/spl.php",
++                    "generated/sqlsrv.php",
++                    "generated/ssdeep.php",
++                    "generated/ssh2.php",
++                    "generated/stream.php",
++                    "generated/strings.php",
++                    "generated/swoole.php",
++                    "generated/uodbc.php",
++                    "generated/uopz.php",
++                    "generated/url.php",
++                    "generated/var.php",
++                    "generated/xdiff.php",
++                    "generated/xml.php",
++                    "generated/xmlrpc.php",
++                    "generated/yaml.php",
++                    "generated/yaz.php",
++                    "generated/zip.php",
++                    "generated/zlib.php"
++                ]
++            },
++            "notification-url": "https://packagist.org/downloads/",
++            "license": [
++                "MIT"
++            ],
++            "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
++            "support": {
++                "issues": "https://github.com/thecodingmachine/safe/issues",
++                "source": "https://github.com/thecodingmachine/safe/tree/v1.3.3"
++            },
++            "time": "2020-10-28T17:51:34+00:00"
++        },
+         {
+             "name": "twig/extra-bundle",
+             "version": "v3.3.4",
+diff --git a/symfony.lock b/symfony.lock
+index d79d902..7817e0a 100644
+--- a/symfony.lock
++++ b/symfony.lock
+@@ -1,4 +1,7 @@
+ {
++    "beberlei/assert": {
++        "version": "v3.3.1"
++    },
+     "behat/mink": {
+         "version": "v1.9.0"
+     },
+@@ -127,6 +130,9 @@
+     "nikic/php-parser": {
+         "version": "v4.13.2"
+     },
++    "paragonie/constant_time_encoding": {
++        "version": "v2.4.0"
++    },
+     "phar-io/manifest": {
+         "version": "2.0.3"
+     },
+@@ -202,6 +208,9 @@
+             "config/routes/scheb_2fa.yaml"
+         ]
+     },
++    "scheb/2fa-totp": {
++        "version": "v5.13.0"
++    },
+     "sebastian/cli-parser": {
+         "version": "1.0.1"
+     },
+@@ -262,6 +271,9 @@
+             "config/packages/sensio_framework_extra.yaml"
+         ]
+     },
++    "spomky-labs/otphp": {
++        "version": "v10.0.1"
++    },
+     "symfony/asset": {
+         "version": "v5.4.0"
+     },
+@@ -577,6 +589,9 @@
+     "symfony/yaml": {
+         "version": "v5.4.0"
+     },
++    "thecodingmachine/safe": {
++        "version": "v1.3.3"
++    },
+     "theseer/tokenizer": {
+         "version": "1.2.1"
+     },

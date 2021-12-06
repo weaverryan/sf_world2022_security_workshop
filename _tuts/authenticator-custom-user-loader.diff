@@ -1,5 +1,5 @@
 diff --git a/src/Security/QueryParamsAuthenticator.php b/src/Security/QueryParamsAuthenticator.php
-index 7707d4b..82db26e 100644
+index bea9107..d95a3be 100644
 --- a/src/Security/QueryParamsAuthenticator.php
 +++ b/src/Security/QueryParamsAuthenticator.php
 @@ -2,10 +2,12 @@
@@ -29,12 +29,12 @@ index 7707d4b..82db26e 100644
      public function supports(Request $request): ?bool
      {
          return $request->query->has('email')
-@@ -23,7 +32,15 @@ class QueryParamsAuthenticator extends AbstractAuthenticator
-     public function authenticate(Request $request)
-     {
+@@ -26,7 +35,15 @@ class QueryParamsAuthenticator extends AbstractAuthenticator
+         $password = $request->query->get('password', '');
+ 
          return new Passport(
--            new UserBadge($request->query->get('email')),
-+            new UserBadge($request->query->get('email'), function(string $email) {
+-            new UserBadge($email),
++            new UserBadge($email, function(string $email) {
 +                $user = $this->userRepository->findOneBy(['email' => $email]);
 +
 +                if (!$user) {
@@ -43,6 +43,6 @@ index 7707d4b..82db26e 100644
 +
 +                return $user;
 +            }),
-             new PasswordCredentials($request->query->get('password'))
+             new PasswordCredentials($password)
          );
      }

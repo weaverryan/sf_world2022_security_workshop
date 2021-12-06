@@ -61,6 +61,11 @@
             "description": null
         },
         {
+            "id": "authenticator-authenticate-return-type",
+            "name": "Authenticator: authenticate() return type",
+            "description": null
+        },
+        {
             "id": "authenticator-fill-in-authenicate",
             "name": "Authenticator: fill in authenicate()",
             "description": null
@@ -69,7 +74,97 @@
             "id": "authenticator-custom-user-loader",
             "name": "Authenticator: Custom user loader",
             "description": null
+        },
+        {
+            "id": "jsonlogin-copy-paste-authenticator",
+            "name": "JsonLogin: copy\/paste authenticator",
+            "description": null
+        },
+        {
+            "id": "jsonlogin-register-under-firewall",
+            "name": "JsonLogin: Register under firewall",
+            "description": null
+        },
+        {
+            "id": "jsonlogin-supports",
+            "name": "JsonLogin: supports()",
+            "description": null
+        },
+        {
+            "id": "jsonlogin-authenticate",
+            "name": "JsonLogin: authenticate()",
+            "description": null
+        },
+        {
+            "id": "jsonlogin-onauthenticationfailure",
+            "name": "JsonLogin: onAuthenticationFailure()",
+            "description": null
+        },
+        {
+            "id": "jsonlogin-onauthenticationsuccess",
+            "name": "JsonLogin: onAuthenticationSuccess()",
+            "description": null
+        },
+        {
+            "id": "jwtauth-create-authenticator",
+            "name": "JWTAuth: Create authenticator",
+            "description": null
+        },
+        {
+            "id": "jwtauth-activate-in-firewall",
+            "name": "JWTAuth: activate in firewall",
+            "description": null
+        },
+        {
+            "id": "jwtauth-supports-dump-header",
+            "name": "JWTAuth: supports() & dump header",
+            "description": null
+        },
+        {
+            "id": "jwtauth-extract-token",
+            "name": "JWTAuth: extract token",
+            "description": null
+        },
+        {
+            "id": "jwtauth-paste-in-jwt-code",
+            "name": "JWTAuth: Paste in JWT code",
+            "description": null
+        },
+        {
+            "id": "jwtauth-return-selfvalidatingpassport",
+            "name": "JWTAuth: return SelfValidatingPassport",
+            "description": null
+        },
+        {
+            "id": "jwtauth-onauthenticationsuccess",
+            "name": "JWTAuth: onAuthenticationSuccess()",
+            "description": null
+        },
+        {
+            "id": "2fa-install-scheb-2fa-bundle",
+            "name": "2fa: install scheb\/2fa-bundle",
+            "description": null
+        },
+        {
+            "id": "2fa-setup-in-firewall",
+            "name": "2fa: setup in firewall",
+            "description": null
+        },
+        {
+            "id": "2fa-install-scheb-2fa-totp",
+            "name": "2fa: Install scheb\/2fa-totp",
+            "description": null
+        },
+        {
+            "id": "2fa-enable-totp-in-config",
+            "name": "2fa: Enable totp in config",
+            "description": null
+        },
+        {
+            "id": "2fa-add-twofactorinterface",
+            "name": "2fa: Add TwoFactorInterface",
+            "description": null
         }
     ],
-    "sha": "275148e795044228262ceb3bdd52b06808a8885d"
+    "sha": "54a4eab7afb148f259efe1458018159c97e28b9f"
 }

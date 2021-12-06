@@ -1,0 +1,12 @@
+diff --git a/config/packages/security.yaml b/config/packages/security.yaml
+index 5d1c4fe..1c1872d 100644
+--- a/config/packages/security.yaml
++++ b/config/packages/security.yaml
+@@ -24,6 +24,7 @@ security:
+             custom_authenticators:
+                 - App\Security\QueryParamsAuthenticator
+                 - App\Security\JsonLoginAuthenticator
++                - App\Security\JwtAuthenticator
+ 
+             login_throttling:
+                 max_attempts: 3

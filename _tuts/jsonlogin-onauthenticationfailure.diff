@@ -1,0 +1,20 @@
+diff --git a/src/Security/JsonLoginAuthenticator.php b/src/Security/JsonLoginAuthenticator.php
+index 5d133c1..76c63c2 100644
+--- a/src/Security/JsonLoginAuthenticator.php
++++ b/src/Security/JsonLoginAuthenticator.php
+@@ -3,6 +3,7 @@
+ namespace App\Security;
+ 
+ use App\Repository\UserRepository;
++use Symfony\Component\HttpFoundation\JsonResponse;
+ use Symfony\Component\HttpFoundation\Request;
+ use Symfony\Component\HttpFoundation\Response;
+ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+@@ -55,6 +56,6 @@ class JsonLoginAuthenticator extends AbstractAuthenticator
+ 
+     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
+     {
+-        dd('failure', $exception);
++        return new JsonResponse(['error' => $exception->getMessageKey()], 401);
+     }
+ }

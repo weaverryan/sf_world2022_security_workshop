@@ -1,5 +1,5 @@
 diff --git a/src/Security/QueryParamsAuthenticator.php b/src/Security/QueryParamsAuthenticator.php
-index f952fa5..7707d4b 100644
+index 5d4924a..bea9107 100644
 --- a/src/Security/QueryParamsAuthenticator.php
 +++ b/src/Security/QueryParamsAuthenticator.php
 @@ -8,6 +8,8 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -11,14 +11,17 @@ index f952fa5..7707d4b 100644
  use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
  
  class QueryParamsAuthenticator extends AbstractAuthenticator
-@@ -20,16 +22,19 @@ class QueryParamsAuthenticator extends AbstractAuthenticator
+@@ -20,16 +22,22 @@ class QueryParamsAuthenticator extends AbstractAuthenticator
  
-     public function authenticate(Request $request)
+     public function authenticate(Request $request): Passport
      {
 -        dd('authenticate!');
++        $email = $request->query->get('email', '');
++        $password = $request->query->get('password', '');
++
 +        return new Passport(
-+            new UserBadge($request->query->get('email')),
-+            new PasswordCredentials($request->query->get('password'))
++            new UserBadge($email),
++            new PasswordCredentials($password)
 +        );
      }
  
