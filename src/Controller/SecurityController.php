@@ -50,6 +50,7 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/authentication/2fa/qr-code", name="app_qr_code")
+     * @IsGranted("IS_AUTHENTICATED_FULLY")
      */
     public function displayGoogleAuthenticatorQrCode()
     {
