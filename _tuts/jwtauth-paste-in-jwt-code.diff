@@ -1,12 +1,13 @@
 diff --git a/src/Security/JwtAuthenticator.php b/src/Security/JwtAuthenticator.php
-index 34a5358..f7f6bfd 100644
+index 34a5358..a5ea456 100644
 --- a/src/Security/JwtAuthenticator.php
 +++ b/src/Security/JwtAuthenticator.php
-@@ -2,16 +2,27 @@
+@@ -2,16 +2,28 @@
  
  namespace App\Security;
  
 +use Lcobucci\JWT\Configuration;
++use Lcobucci\JWT\Token\Plain;
 +use Lcobucci\JWT\Validation\Constraint\IssuedBy;
 +use Lcobucci\JWT\Validation\Constraint\SignedWith;
  use Symfony\Component\HttpFoundation\Request;
@@ -30,7 +31,7 @@ index 34a5358..f7f6bfd 100644
      public function supports(Request $request): ?bool
      {
          return $request->headers->has('Authorization');
-@@ -21,7 +32,21 @@ class JwtAuthenticator extends AbstractAuthenticator
+@@ -21,7 +33,22 @@ class JwtAuthenticator extends AbstractAuthenticator
      {
          $authorization = $request->headers->get('Authorization');
          $token = u($authorization)->after('Bearer ')->toString();
@@ -38,6 +39,7 @@ index 34a5358..f7f6bfd 100644
 +
 +        $parser = $this->configuration->parser();
 +        $validator = $this->configuration->validator();
++        /** @var Plain $jwt */
 +        $jwt = $parser->parse($token);
 +
 +        $constraints = [
