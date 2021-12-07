@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index 9156401..5938385 100644
+index 290dd60..55451e1 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -17,6 +17,7 @@
@@ -11,15 +11,15 @@ index 9156401..5938385 100644
          "symfony/console": "5.4.*",
          "symfony/dotenv": "5.4.*",
 diff --git a/composer.lock b/composer.lock
-index 8c0bcfe..f810199 100644
+index e8ab964..a2f9141 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,8 +4,61 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "1b5f072165798696397f0c1954913251",
-+    "content-hash": "df3e9a05f81e5ad1f63578ec76202fdd",
+-    "content-hash": "d4ec2b0ba8a74ed2cabb08bf7dba2b11",
++    "content-hash": "50a056b103bf5c08206cb39388878c63",
      "packages": [
 +        {
 +            "name": "bacon/bacon-qr-code",
@@ -212,8 +212,8 @@ index 8c0bcfe..f810199 100644
 +        },
          {
              "name": "fakerphp/faker",
-             "version": "v1.13.0",
-@@ -1640,6 +1815,61 @@
+             "version": "v1.17.0",
+@@ -1653,6 +1828,61 @@
              ],
              "time": "2021-05-22T16:11:15+00:00"
          },
@@ -275,7 +275,7 @@ index 8c0bcfe..f810199 100644
          {
              "name": "knplabs/knp-time-bundle",
              "version": "1.17.0",
-@@ -1914,6 +2144,66 @@
+@@ -1927,6 +2157,66 @@
              ],
              "time": "2021-09-28T19:34:56+00:00"
          },
@@ -342,7 +342,7 @@ index 8c0bcfe..f810199 100644
          {
              "name": "paragonie/constant_time_encoding",
              "version": "v2.4.0",
-@@ -2455,6 +2745,55 @@
+@@ -2468,6 +2758,55 @@
              },
              "time": "2021-10-16T19:47:29+00:00"
          },

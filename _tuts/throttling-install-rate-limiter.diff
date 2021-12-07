@@ -13,7 +13,7 @@ index d625c16..00e6b52 100644
 +LOCK_DSN=semaphore
 +###< symfony/lock ###
 diff --git a/composer.json b/composer.json
-index 193b342..f66866f 100644
+index cbdb120..023175f 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -23,6 +23,7 @@
@@ -25,10 +25,10 @@ index 193b342..f66866f 100644
          "symfony/security-bundle": "5.4.*",
          "symfony/serializer": "5.4.*",
 diff --git a/composer.lock b/composer.lock
-index 6fcedde..0588350 100644
+index c02a789..ed23c6a 100644
 --- a/composer.lock
 +++ b/composer.lock
-@@ -3789,6 +3789,155 @@
+@@ -3802,6 +3802,155 @@
              ],
              "time": "2021-11-29T16:56:53+00:00"
          },
@@ -184,7 +184,7 @@ index 6fcedde..0588350 100644
          {
              "name": "symfony/password-hasher",
              "version": "v5.4.0",
-@@ -4588,6 +4737,76 @@
+@@ -4601,6 +4750,76 @@
              ],
              "time": "2021-11-17T12:18:18+00:00"
          },

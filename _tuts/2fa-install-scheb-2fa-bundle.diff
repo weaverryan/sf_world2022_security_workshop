@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index f66866f..8826d48 100644
+index 023175f..2df06e7 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -16,6 +16,7 @@
@@ -11,21 +11,21 @@ index f66866f..8826d48 100644
          "symfony/dotenv": "5.4.*",
          "symfony/flex": "^1.17|^2",
 diff --git a/composer.lock b/composer.lock
-index 0588350..8f9b3b3 100644
+index ed23c6a..b98d30d 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "dc817d85e26e803b5b6b3b98e29fd4e1",
-+    "content-hash": "1274d8eec1d17435b303ae04a44accd9",
+-    "content-hash": "ef978a56bcac985ac86b8e8e2e87866d",
++    "content-hash": "60b5da8d1c36e471f0689bc80d8898c7",
      "packages": [
          {
              "name": "composer/package-versions-deprecated",
-@@ -2253,6 +2253,74 @@
+@@ -2266,6 +2266,74 @@
              },
-             "time": "2021-07-14T16:41:46+00:00"
+             "time": "2021-05-03T11:20:27+00:00"
          },
 +        {
 +            "name": "scheb/2fa-bundle",
