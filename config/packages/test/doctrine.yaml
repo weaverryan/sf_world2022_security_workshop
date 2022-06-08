@@ -1,5 +1,0 @@
-doctrine:
-    dbal:
-        # "TEST_TOKEN" is typically set by ParaTest
-# removing _test suffix for simplicity in workshop
-#        dbname_suffix: '_test%env(default::TEST_TOKEN)%'
