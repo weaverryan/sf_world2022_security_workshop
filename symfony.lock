@@ -118,9 +118,6 @@
     "monolog/monolog": {
         "version": "2.3.5"
     },
-    "mtdowling/jmespath.php": {
-        "version": "2.6.1"
-    },
     "myclabs/deep-copy": {
         "version": "1.10.2"
     },
