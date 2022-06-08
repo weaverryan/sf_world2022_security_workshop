@@ -1,11 +1,11 @@
 # Symfony World: Adventures through Security Workshop
 
 Well hi there! This repository holds the code that you'll need for the
-"Symfony Security in Depth" workshop at SymfonyWorld 2021 Winter.
+"Symfony Security in Depth" workshop at SymfonyWorld 2022 Summer.
 
 ## Requirements
 
-- PHP Version 7.4 or newer with all extensions required for Symfony, plus the GD extension
+- PHP Version 8.0 or newer with all extensions required for Symfony, plus the GD extension
 - The Symfony CLI (https://symfony.com/download)
 - Composer 2.0
 - Docker (for the database only - alternatively, you can use a local MySQL installation)
