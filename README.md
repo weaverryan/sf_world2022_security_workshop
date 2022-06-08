@@ -31,7 +31,7 @@ composer install
 
 **Database Setup**
 
-If you want to setup a local database instance (e.g. MySQL), great!
+If you want to set up a local database instance (e.g. MySQL), great!
 
 But this code comes with a `docker-compose.yaml` file that can handle
 creating a MySQL instance for you.
