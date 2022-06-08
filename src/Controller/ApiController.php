@@ -8,10 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ApiController extends AbstractController
 {
-    /**
-     * @Route("/api/me", name="api_me")
-     * @IsGranted("IS_AUTHENTICATED_FULLY")
-     */
+    #[Route('/api/me', name: 'api_me')]
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
     public function apiMe()
     {
         return $this->json($this->getUser());

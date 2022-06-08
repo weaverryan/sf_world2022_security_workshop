@@ -2,9 +2,6 @@
     "behat/mink": {
         "version": "v1.9.0"
     },
-    "composer/package-versions-deprecated": {
-        "version": "1.11.99.4"
-    },
     "doctrine/annotations": {
         "version": "1.13",
         "recipe": {
@@ -147,9 +144,6 @@
     },
     "phpspec/prophecy": {
         "version": "1.14.0"
-    },
-    "phpstan/phpdoc-parser": {
-        "version": "1.2.0"
     },
     "phpunit/php-code-coverage": {
         "version": "9.2.10"

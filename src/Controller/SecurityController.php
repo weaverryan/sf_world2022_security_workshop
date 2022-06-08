@@ -12,9 +12,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SecurityController extends AbstractController
 {
-    /**
-     * @Route("/login", name="app_login")
-     */
+    #[Route('/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         return $this->render('security/login.html.twig', [
@@ -23,18 +21,14 @@ class SecurityController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/logout")
-     */
+    #[Route('/logout')]
     public function logout()
     {
         throw new \Exception('logout() should never be reached');
     }
 
-    /**
-     * @Route("/authentication/2fa/enable", name="app_2fa_enable")
-     * @IsGranted("IS_AUTHENTICATED_FULLY")
-     */
+    #[Route('/authentication/2fa/enable', name: 'app_2fa_enable')]
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
     public function enable2fa(EntityManagerInterface $entityManager, TotpAuthenticatorInterface $totpAuthenticator)
     {
         $user = $this->getUser();
@@ -48,10 +42,8 @@ class SecurityController extends AbstractController
         return $this->render('security/enable2fa.html.twig');
     }
 
-    /**
-     * @Route("/authentication/2fa/qr-code", name="app_qr_code")
-     * @IsGranted("IS_AUTHENTICATED_FULLY")
-     */
+    #[Route('/authentication/2fa/qr-code', name: 'app_qr_code')]
+    #[IsGranted('IS_AUTHENTICATED_FULLY')]
     public function displayGoogleAuthenticatorQrCode()
     {
         die('TODO!');
