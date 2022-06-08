@@ -1,8 +1,8 @@
 diff --git a/src/Controller/ApiController.php b/src/Controller/ApiController.php
-index ed6376b..809a163 100644
+index b4c6f52..b2152b2 100644
 --- a/src/Controller/ApiController.php
 +++ b/src/Controller/ApiController.php
-@@ -16,4 +16,12 @@ class ApiController extends AbstractController
+@@ -14,4 +14,12 @@ class ApiController extends AbstractController
      {
          return $this->json($this->getUser());
      }

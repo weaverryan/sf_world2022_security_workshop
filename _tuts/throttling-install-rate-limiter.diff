@@ -1,9 +1,9 @@
 diff --git a/.env b/.env
-index d625c16..00e6b52 100644
+index 0c68a18..5b72a40 100644
 --- a/.env
 +++ b/.env
 @@ -26,3 +26,9 @@ APP_SECRET=15e11f800d17e0e2b5d9ea972deed7ff
- # DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7"
+ # DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7&charset=utf8mb4"
  DATABASE_URL="postgresql://symfony:ChangeMe@127.0.0.1:5432/app?serverVersion=13&charset=utf8"
  ###< doctrine/doctrine-bundle ###
 +
@@ -13,10 +13,10 @@ index d625c16..00e6b52 100644
 +LOCK_DSN=semaphore
 +###< symfony/lock ###
 diff --git a/composer.json b/composer.json
-index cbdb120..023175f 100644
+index b035caf..bc083ee 100644
 --- a/composer.json
 +++ b/composer.json
-@@ -23,6 +23,7 @@
+@@ -20,6 +20,7 @@
          "symfony/property-access": "5.4.*",
          "symfony/property-info": "5.4.*",
          "symfony/proxy-manager-bridge": "5.4.*",
@@ -25,25 +25,34 @@ index cbdb120..023175f 100644
          "symfony/security-bundle": "5.4.*",
          "symfony/serializer": "5.4.*",
 diff --git a/composer.lock b/composer.lock
-index c02a789..ed23c6a 100644
+index d515744..8b4b468 100644
 --- a/composer.lock
 +++ b/composer.lock
-@@ -3802,6 +3802,155 @@
+@@ -4,7 +4,7 @@
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+         "This file is @generated automatically"
+     ],
+-    "content-hash": "3dd0134d55bfd39c5116bae49702a98a",
++    "content-hash": "c42daa136ff72477bada446e2d4b5c2b",
+     "packages": [
+         {
+             "name": "doctrine/annotations",
+@@ -3655,6 +3655,154 @@
              ],
-             "time": "2021-11-29T16:56:53+00:00"
+             "time": "2022-05-27T07:09:08+00:00"
          },
 +        {
 +            "name": "symfony/lock",
-+            "version": "v5.4.0",
++            "version": "v5.4.7",
 +            "source": {
 +                "type": "git",
 +                "url": "https://github.com/symfony/lock.git",
-+                "reference": "5a63cb69ec6cf17c78d7699eacd48cea54fd7baa"
++                "reference": "a16279554621453840eb8af14d12cfa24c10b8d3"
 +            },
 +            "dist": {
 +                "type": "zip",
-+                "url": "https://api.github.com/repos/symfony/lock/zipball/5a63cb69ec6cf17c78d7699eacd48cea54fd7baa",
-+                "reference": "5a63cb69ec6cf17c78d7699eacd48cea54fd7baa",
++                "url": "https://api.github.com/repos/symfony/lock/zipball/a16279554621453840eb8af14d12cfa24c10b8d3",
++                "reference": "a16279554621453840eb8af14d12cfa24c10b8d3",
 +                "shasum": ""
 +            },
 +            "require": {
@@ -57,7 +66,6 @@ index c02a789..ed23c6a 100644
 +            },
 +            "require-dev": {
 +                "doctrine/dbal": "^2.13|^3.0",
-+                "mongodb/mongodb": "~1.1",
 +                "predis/predis": "~1.0"
 +            },
 +            "type": "library",
@@ -94,7 +102,7 @@ index c02a789..ed23c6a 100644
 +                "semaphore"
 +            ],
 +            "support": {
-+                "source": "https://github.com/symfony/lock/tree/v5.4.0"
++                "source": "https://github.com/symfony/lock/tree/v5.4.7"
 +            },
 +            "funding": [
 +                {
@@ -110,20 +118,20 @@ index c02a789..ed23c6a 100644
 +                    "type": "tidelift"
 +                }
 +            ],
-+            "time": "2021-11-23T10:19:22+00:00"
++            "time": "2022-03-22T15:31:03+00:00"
 +        },
 +        {
 +            "name": "symfony/options-resolver",
-+            "version": "v5.4.0",
++            "version": "v5.4.3",
 +            "source": {
 +                "type": "git",
 +                "url": "https://github.com/symfony/options-resolver.git",
-+                "reference": "b0fb78576487af19c500aaddb269fd36701d4847"
++                "reference": "cc1147cb11af1b43f503ac18f31aa3bec213aba8"
 +            },
 +            "dist": {
 +                "type": "zip",
-+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/b0fb78576487af19c500aaddb269fd36701d4847",
-+                "reference": "b0fb78576487af19c500aaddb269fd36701d4847",
++                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/cc1147cb11af1b43f503ac18f31aa3bec213aba8",
++                "reference": "cc1147cb11af1b43f503ac18f31aa3bec213aba8",
 +                "shasum": ""
 +            },
 +            "require": {
@@ -163,7 +171,7 @@ index c02a789..ed23c6a 100644
 +                "options"
 +            ],
 +            "support": {
-+                "source": "https://github.com/symfony/options-resolver/tree/v5.4.0"
++                "source": "https://github.com/symfony/options-resolver/tree/v5.4.3"
 +            },
 +            "funding": [
 +                {
@@ -179,27 +187,27 @@ index c02a789..ed23c6a 100644
 +                    "type": "tidelift"
 +                }
 +            ],
-+            "time": "2021-11-23T10:19:22+00:00"
++            "time": "2022-01-02T09:53:40+00:00"
 +        },
          {
              "name": "symfony/password-hasher",
-             "version": "v5.4.0",
-@@ -4601,6 +4750,76 @@
+             "version": "v5.4.8",
+@@ -4456,6 +4604,76 @@
              ],
-             "time": "2021-11-17T12:18:18+00:00"
+             "time": "2022-03-02T12:42:23+00:00"
          },
 +        {
 +            "name": "symfony/rate-limiter",
-+            "version": "v5.4.0",
++            "version": "v5.4.9",
 +            "source": {
 +                "type": "git",
 +                "url": "https://github.com/symfony/rate-limiter.git",
-+                "reference": "9392f306070f56dff094c2be6848e9303cd981ac"
++                "reference": "77bbe1e96118e117b8b1fe6bed57dc1b5dfebe45"
 +            },
 +            "dist": {
 +                "type": "zip",
-+                "url": "https://api.github.com/repos/symfony/rate-limiter/zipball/9392f306070f56dff094c2be6848e9303cd981ac",
-+                "reference": "9392f306070f56dff094c2be6848e9303cd981ac",
++                "url": "https://api.github.com/repos/symfony/rate-limiter/zipball/77bbe1e96118e117b8b1fe6bed57dc1b5dfebe45",
++                "reference": "77bbe1e96118e117b8b1fe6bed57dc1b5dfebe45",
 +                "shasum": ""
 +            },
 +            "require": {
@@ -240,7 +248,7 @@ index c02a789..ed23c6a 100644
 +                "rate-limiter"
 +            ],
 +            "support": {
-+                "source": "https://github.com/symfony/rate-limiter/tree/v5.4.0"
++                "source": "https://github.com/symfony/rate-limiter/tree/v5.4.9"
 +            },
 +            "funding": [
 +                {
@@ -256,11 +264,11 @@ index c02a789..ed23c6a 100644
 +                    "type": "tidelift"
 +                }
 +            ],
-+            "time": "2021-11-17T15:49:41+00:00"
++            "time": "2022-05-14T11:02:49+00:00"
 +        },
          {
              "name": "symfony/routing",
-             "version": "v5.4.0",
+             "version": "v5.4.8",
 diff --git a/config/packages/lock.yaml b/config/packages/lock.yaml
 new file mode 100644
 index 0000000..574879f
@@ -270,10 +278,10 @@ index 0000000..574879f
 +framework:
 +    lock: '%env(LOCK_DSN)%'
 diff --git a/symfony.lock b/symfony.lock
-index 833b49c..14141f7 100644
+index efc5319..9d69149 100644
 --- a/symfony.lock
 +++ b/symfony.lock
-@@ -361,6 +361,18 @@
+@@ -350,6 +350,18 @@
      "symfony/http-kernel": {
          "version": "v5.4.0"
      },
@@ -292,8 +300,8 @@ index 833b49c..14141f7 100644
      "symfony/maker-bundle": {
          "version": "1.36",
          "recipe": {
-@@ -388,6 +400,9 @@
-             "config/packages/test/monolog.yaml"
+@@ -374,6 +386,9 @@
+             "config/packages/monolog.yaml"
          ]
      },
 +    "symfony/options-resolver": {
@@ -302,7 +310,7 @@ index 833b49c..14141f7 100644
      "symfony/password-hasher": {
          "version": "v5.4.0"
      },
-@@ -433,6 +448,9 @@
+@@ -419,6 +434,9 @@
      "symfony/proxy-manager-bridge": {
          "version": "v5.4.0"
      },
@@ -310,5 +318,5 @@ index 833b49c..14141f7 100644
 +        "version": "v5.4.0"
 +    },
      "symfony/routing": {
-         "version": "5.3",
+         "version": "5.4",
          "recipe": {

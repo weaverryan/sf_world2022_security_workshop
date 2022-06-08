@@ -1,58 +1,58 @@
 diff --git a/composer.json b/composer.json
-index 023175f..2df06e7 100644
+index bc083ee..c4da888 100644
 --- a/composer.json
 +++ b/composer.json
-@@ -16,6 +16,7 @@
+@@ -12,6 +12,7 @@
+         "doctrine/orm": "^2.10",
+         "knplabs/knp-time-bundle": "^1.17",
          "lcobucci/jwt": "^4.1",
-         "phpdocumentor/reflection-docblock": "^5.3",
-         "phpstan/phpdoc-parser": "^1.2",
-+        "scheb/2fa-bundle": "^5.13",
++        "scheb/2fa-bundle": "^6.0",
+         "sensio/framework-extra-bundle": "^6.2",
          "symfony/console": "5.4.*",
          "symfony/dotenv": "5.4.*",
-         "symfony/flex": "^1.17|^2",
 diff --git a/composer.lock b/composer.lock
-index ed23c6a..b98d30d 100644
+index 8b4b468..1ceedf1 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "ef978a56bcac985ac86b8e8e2e87866d",
-+    "content-hash": "60b5da8d1c36e471f0689bc80d8898c7",
+-    "content-hash": "c42daa136ff72477bada446e2d4b5c2b",
++    "content-hash": "5af603727f06b5d7fc685116edfd9984",
      "packages": [
          {
-             "name": "composer/package-versions-deprecated",
-@@ -2266,6 +2266,74 @@
+             "name": "doctrine/annotations",
+@@ -1995,6 +1995,73 @@
              },
-             "time": "2021-05-03T11:20:27+00:00"
+             "time": "2021-07-14T16:41:46+00:00"
          },
 +        {
 +            "name": "scheb/2fa-bundle",
-+            "version": "v5.13.0",
++            "version": "v6.0.2",
 +            "source": {
 +                "type": "git",
 +                "url": "https://github.com/scheb/2fa-bundle.git",
-+                "reference": "e89a67bf027e89492811e02fc93172d34aa704ff"
++                "reference": "606e907479aa6c55bc1a28c983e1e9e7b4842ba7"
 +            },
 +            "dist": {
 +                "type": "zip",
-+                "url": "https://api.github.com/repos/scheb/2fa-bundle/zipball/e89a67bf027e89492811e02fc93172d34aa704ff",
-+                "reference": "e89a67bf027e89492811e02fc93172d34aa704ff",
++                "url": "https://api.github.com/repos/scheb/2fa-bundle/zipball/606e907479aa6c55bc1a28c983e1e9e7b4842ba7",
++                "reference": "606e907479aa6c55bc1a28c983e1e9e7b4842ba7",
 +                "shasum": ""
 +            },
 +            "require": {
 +                "ext-json": "*",
-+                "php": ">=7.2.5",
-+                "symfony/config": "^4.4|^5.0",
-+                "symfony/dependency-injection": "^4.4|^5.0",
-+                "symfony/event-dispatcher": "^4.4|^5.0",
-+                "symfony/framework-bundle": "^4.4|^5.0",
-+                "symfony/http-foundation": "^4.4|^5.0",
-+                "symfony/http-kernel": "^4.4|^5.0",
-+                "symfony/property-access": "^4.4|^5.0",
-+                "symfony/security-bundle": "^4.4.1|^5.0",
-+                "symfony/twig-bundle": "^4.4|^5.0"
++                "php": "~8.0.0 || ~8.1.0",
++                "symfony/config": "^5.4 || ^6.0",
++                "symfony/dependency-injection": "^5.4 || ^6.0",
++                "symfony/event-dispatcher": "^5.4 || ^6.0",
++                "symfony/framework-bundle": "^5.4 || ^6.0",
++                "symfony/http-foundation": "^5.4 || ^6.0",
++                "symfony/http-kernel": "^5.4 || ^6.0",
++                "symfony/property-access": "^5.4 || ^6.0",
++                "symfony/security-bundle": "^5.4 || ^6.0",
++                "symfony/twig-bundle": "^5.4 || ^6.0"
 +            },
 +            "conflict": {
 +                "scheb/two-factor-bundle": "*"
@@ -61,7 +61,6 @@ index ed23c6a..b98d30d 100644
 +                "scheb/2fa-backup-code": "Emergency codes when you have no access to other methods",
 +                "scheb/2fa-email": "Send codes by email",
 +                "scheb/2fa-google-authenticator": "Google Authenticator support",
-+                "scheb/2fa-qr-code": "Generate QR codes for Google Authenticator / TOTP",
 +                "scheb/2fa-totp": "Temporary one-time password (TOTP) support (Google Authenticator compatible)",
 +                "scheb/2fa-trusted-device": "Trusted devices support"
 +            },
@@ -91,13 +90,13 @@ index ed23c6a..b98d30d 100644
 +                "two-step"
 +            ],
 +            "support": {
-+                "source": "https://github.com/scheb/2fa-bundle/tree/v5.13.0"
++                "source": "https://github.com/scheb/2fa-bundle/tree/v6.0.2"
 +            },
-+            "time": "2021-10-16T19:47:29+00:00"
++            "time": "2022-04-16T10:15:33+00:00"
 +        },
          {
-             "name": "symfony/asset",
-             "version": "v5.4.0",
+             "name": "sensio/framework-extra-bundle",
+             "version": "v6.2.6",
 diff --git a/config/bundles.php b/config/bundles.php
 index 3793434..188b57a 100644
 --- a/config/bundles.php
@@ -110,46 +109,43 @@ index 3793434..188b57a 100644
  ];
 diff --git a/config/packages/scheb_2fa.yaml b/config/packages/scheb_2fa.yaml
 new file mode 100644
-index 0000000..6b6135a
+index 0000000..8a33ebb
 --- /dev/null
 +++ b/config/packages/scheb_2fa.yaml
-@@ -0,0 +1,8 @@
-+# See the configuration reference at https://github.com/scheb/2fa/blob/master/doc/configuration.md
+@@ -0,0 +1,5 @@
++# See the configuration reference at https://symfony.com/bundles/SchebTwoFactorBundle/6.x/configuration.html
 +scheb_two_factor:
 +    security_tokens:
 +        - Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken
-+        # If you're using guard-based authentication, you have to use this one:
-+        # - Symfony\Component\Security\Guard\Token\PostAuthenticationGuardToken
-+        # If you're using authenticator-based security (introduced in Symfony 5.1), you have to use this one:
-+        # - Symfony\Component\Security\Http\Authenticator\Token\PostAuthenticationToken
++        - Symfony\Component\Security\Http\Authenticator\Token\PostAuthenticationToken
 diff --git a/config/routes/scheb_2fa.yaml b/config/routes/scheb_2fa.yaml
 new file mode 100644
-index 0000000..b574a0c
+index 0000000..9a8ca66
 --- /dev/null
 +++ b/config/routes/scheb_2fa.yaml
 @@ -0,0 +1,7 @@
 +2fa_login:
 +    path: /2fa
 +    defaults:
-+        _controller: "scheb_two_factor.form_controller:form"
++        _controller: "scheb_two_factor.form_controller::form"
 +
 +2fa_login_check:
 +    path: /2fa_check
 diff --git a/symfony.lock b/symfony.lock
-index 14141f7..8bd9954 100644
+index 9d69149..95299ff 100644
 --- a/symfony.lock
 +++ b/symfony.lock
-@@ -192,6 +192,19 @@
+@@ -181,6 +181,19 @@
      "psr/log": {
          "version": "2.0.0"
      },
 +    "scheb/2fa-bundle": {
-+        "version": "5.13",
++        "version": "6.0",
 +        "recipe": {
 +            "repo": "github.com/symfony/recipes",
-+            "branch": "master",
-+            "version": "5.0",
-+            "ref": "62660e7d21b8b5295c5a6f8ca17dc7099881f267"
++            "branch": "main",
++            "version": "6.0",
++            "ref": "1e6f68089146853a790b5da9946fc5974f6fcd49"
 +        },
 +        "files": [
 +            "config/packages/scheb_2fa.yaml",

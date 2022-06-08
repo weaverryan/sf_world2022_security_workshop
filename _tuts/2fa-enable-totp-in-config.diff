@@ -1,10 +1,10 @@
 diff --git a/config/packages/scheb_2fa.yaml b/config/packages/scheb_2fa.yaml
-index 6b6135a..de9bd48 100644
+index 8a33ebb..84176ab 100644
 --- a/config/packages/scheb_2fa.yaml
 +++ b/config/packages/scheb_2fa.yaml
-@@ -6,3 +6,5 @@ scheb_two_factor:
-         # - Symfony\Component\Security\Guard\Token\PostAuthenticationGuardToken
-         # If you're using authenticator-based security (introduced in Symfony 5.1), you have to use this one:
-         # - Symfony\Component\Security\Http\Authenticator\Token\PostAuthenticationToken
+@@ -3,3 +3,5 @@ scheb_two_factor:
+     security_tokens:
+         - Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken
+         - Symfony\Component\Security\Http\Authenticator\Token\PostAuthenticationToken
 +    totp:
 +        enabled: true

@@ -1,5 +1,5 @@
 diff --git a/config/packages/security.yaml b/config/packages/security.yaml
-index 1c1872d..74caf01 100644
+index b3d6459..5d61641 100644
 --- a/config/packages/security.yaml
 +++ b/config/packages/security.yaml
 @@ -26,6 +26,10 @@ security:
@@ -13,10 +13,11 @@ index 1c1872d..74caf01 100644
              login_throttling:
                  max_attempts: 3
  
-@@ -45,5 +49,6 @@ security:
+@@ -45,6 +49,7 @@ security:
      # Easy way to control access for large sections of your site
      # Note: Only the *first* access control that matches will be used
      access_control:
 +        - { path: ^/logout, role: PUBLIC_ACCESS }
          # - { path: ^/admin, roles: ROLE_ADMIN }
          # - { path: ^/profile, roles: ROLE_USER }
+ 
