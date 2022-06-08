@@ -4,7 +4,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "composer/package-versions-deprecated": "1.11.99.4",
@@ -16,9 +16,10 @@
         "lcobucci/jwt": "^4.1",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.2",
+        "sensio/framework-extra-bundle": "^6.2",
         "symfony/console": "5.4.*",
         "symfony/dotenv": "5.4.*",
-        "symfony/flex": "^1.17|^2",
+        "symfony/flex": "^2",
         "symfony/framework-bundle": "5.4.*",
         "symfony/property-access": "5.4.*",
         "symfony/property-info": "5.4.*",
@@ -29,8 +30,8 @@
         "symfony/twig-bundle": "5.4.*",
         "symfony/webpack-encore-bundle": "^1.13",
         "symfony/yaml": "5.4.*",
-        "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0",
+        "twig/extra-bundle": "^3.0",
+        "twig/twig": "^3.0",
         "zenstruck/foundry": "^1.14.1"
     },
     "config": {
@@ -40,7 +41,11 @@
         },
         "sort-packages": true,
         "platform": {
-            "php": "7.4"
+            "php": "8.0"
+        },
+        "allow-plugins": {
+            "symfony/flex": true,
+            "symfony/runtime": true
         }
     },
     "autoload": {
@@ -82,7 +87,6 @@
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "phpunit/phpunit": "^9.5",
-        "sensio/framework-extra-bundle": "^6.2",
         "symfony/browser-kit": "5.4.*",
         "symfony/css-selector": "5.4.*",
         "symfony/debug-bundle": "5.4.*",
