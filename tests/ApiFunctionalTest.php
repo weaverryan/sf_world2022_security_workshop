@@ -2,6 +2,7 @@
 
 namespace App\Tests;
 
+use App\Factory\UserFactory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Zenstruck\Browser\Test\HasBrowser;
 use Zenstruck\Foundry\Test\ResetDatabase;
@@ -13,6 +14,11 @@ class ApiFunctionalTest extends KernelTestCase
 
     public function testApiProcess(): void
     {
+        UserFactory::createOne([
+            'email' => 'wouter@example.com',
+            'plainPassword' => 'symfony'
+        ]);
+
         $browser = $this->browser()
             ->post('/api/login', [
                 'json' => [
