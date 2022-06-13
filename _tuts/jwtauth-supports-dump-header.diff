@@ -19,10 +19,10 @@ index e0522da..ed2a956 100644
  
      public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
 diff --git a/tests/ApiFunctionalTest.php b/tests/ApiFunctionalTest.php
-index 5af9768..9a80d7f 100644
+index 8b0bd73..d986dbd 100644
 --- a/tests/ApiFunctionalTest.php
 +++ b/tests/ApiFunctionalTest.php
-@@ -22,7 +22,6 @@ class ApiFunctionalTest extends KernelTestCase
+@@ -24,7 +24,6 @@ class ApiFunctionalTest extends KernelTestCase
              ->assertJson()
          ;
          $data = json_decode($browser->response()->body(), true);

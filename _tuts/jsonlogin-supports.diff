@@ -1,15 +1,13 @@
 diff --git a/src/Controller/ApiController.php b/src/Controller/ApiController.php
-index b4c6f52..b2152b2 100644
+index b4c6f52..13b2cf2 100644
 --- a/src/Controller/ApiController.php
 +++ b/src/Controller/ApiController.php
-@@ -14,4 +14,12 @@ class ApiController extends AbstractController
+@@ -14,4 +14,10 @@ class ApiController extends AbstractController
      {
          return $this->json($this->getUser());
      }
 +
-+    /**
-+     * @Route("/api/login", name="api_login", methods={"POST"})
-+     */
++    #[Route('/api/login', name: 'api_login', methods: ['POST'])]
 +    public function apiLogin()
 +    {
 +        throw new \Exception('This will never be executed: intercepted by JsonLoginAuthenticator.');
