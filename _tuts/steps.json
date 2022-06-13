@@ -176,8 +176,8 @@
             "description": null
         },
         {
-            "id": "2fa-install-scheb-2fa-qr-code",
-            "name": "2fa: Install scheb\/2fa-qr-code",
+            "id": "2fa-install-endroid-qr-code",
+            "name": "2fa: Install endroid\/qr-code",
             "description": null
         },
         {
@@ -211,5 +211,5 @@
             "description": null
         }
     ],
-    "sha": "83730663c52dd9f396b8b37eeb7549d11c6ea0d0"
+    "sha": "d4858a1fd1b7b16de72de2fb2ef2d7045d51db93"
 }

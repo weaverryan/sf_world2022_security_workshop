@@ -11,7 +11,7 @@ index bc083ee..c4da888 100644
          "symfony/console": "5.4.*",
          "symfony/dotenv": "5.4.*",
 diff --git a/composer.lock b/composer.lock
-index 8b4b468..1ceedf1 100644
+index 7dd90b7..ca747a5 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@

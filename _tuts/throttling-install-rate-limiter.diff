@@ -25,7 +25,7 @@ index b035caf..bc083ee 100644
          "symfony/security-bundle": "5.4.*",
          "symfony/serializer": "5.4.*",
 diff --git a/composer.lock b/composer.lock
-index d515744..8b4b468 100644
+index 73408ca..7dd90b7 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@

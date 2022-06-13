@@ -1,25 +1,28 @@
 diff --git a/src/Controller/SecurityController.php b/src/Controller/SecurityController.php
-index dbf36fe..2cf9dc7 100644
+index dbf36fe..3f2e60b 100644
 --- a/src/Controller/SecurityController.php
 +++ b/src/Controller/SecurityController.php
-@@ -4,6 +4,7 @@ namespace App\Controller;
+@@ -3,6 +3,7 @@
+ namespace App\Controller;
  
  use Doctrine\ORM\EntityManagerInterface;
++use Endroid\QrCode\Builder\Builder;
  use Scheb\TwoFactorBundle\Security\TwoFactor\Provider\Totp\TotpAuthenticatorInterface;
-+use Scheb\TwoFactorBundle\Security\TwoFactor\QrCode\QrCodeGenerator;
  use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
  use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
- use Symfony\Component\HttpFoundation\Response;
-@@ -43,8 +44,10 @@ class SecurityController extends AbstractController
+@@ -43,8 +44,13 @@ class SecurityController extends AbstractController
  
      #[Route('/authentication/2fa/qr-code', name: 'app_qr_code')]
      #[IsGranted('IS_AUTHENTICATED_FULLY')]
 -    public function displayGoogleAuthenticatorQrCode()
-+    public function displayGoogleAuthenticatorQrCode(QrCodeGenerator $qrCodeGenerator)
++    public function displayGoogleAuthenticatorQrCode(TotpAuthenticatorInterface $totpAuthenticator): Response
      {
 -        die('TODO!');
-+        $qrCode = $qrCodeGenerator->getTotpQrCode($this->getUser());
++        $qrCodeContent = $totpAuthenticator->getQRContent($this->getUser());
++        $result = Builder::create()
++            ->data($qrCodeContent)
++            ->build();
 +
-+        return new Response($qrCode->writeString(), 200, ['Content-Type' => 'image/png']);
++        return new Response($result->getString(), 200, ['Content-Type' => 'image/png']);
      }
  }
