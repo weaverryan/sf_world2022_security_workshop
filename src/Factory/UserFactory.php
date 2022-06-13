@@ -41,7 +41,7 @@ final class UserFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'email' => self::faker()->email,
+            'email' => self::faker()->email(),
             'plainPassword' => 'symfony',
         ];
     }
