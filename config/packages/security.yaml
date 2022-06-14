@@ -24,6 +24,8 @@ security:
 
             logout: true
 
+            form_login: true
+
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
