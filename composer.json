@@ -10,6 +10,7 @@
         "doctrine/doctrine-bundle": "^2.5",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.10",
+        "endroid/qr-code": "^4.0",
         "knplabs/knp-time-bundle": "^1.17",
         "lcobucci/jwt": "^4.1",
         "scheb/2fa-bundle": "^6.0",
