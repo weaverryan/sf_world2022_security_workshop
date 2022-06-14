@@ -18,7 +18,7 @@ class QueryParamsAuthenticator extends AbstractAuthenticator
             && $request->query->has('password');
     }
 
-    public function authenticate(Request $request)
+    public function authenticate(Request $request): Passport
     {
         dd('authenticate!');
     }
