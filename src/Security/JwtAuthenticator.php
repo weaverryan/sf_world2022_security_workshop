@@ -8,6 +8,7 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
+use function Symfony\Component\String\u;
 
 class JwtAuthenticator extends AbstractAuthenticator
 {
@@ -19,7 +20,8 @@ class JwtAuthenticator extends AbstractAuthenticator
     public function authenticate(Request $request): Passport
     {
         $authorization = $request->headers->get('Authorization');
-        dd($authorization);
+        $token = u($authorization)->after('Bearer ')->toString();
+        dd($token);
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
