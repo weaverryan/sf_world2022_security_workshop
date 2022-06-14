@@ -14,7 +14,7 @@ class QueryParamsAuthenticator extends AbstractAuthenticator
 {
     public function supports(Request $request): ?bool
     {
-        // TODO: Implement supports() method.
+        dd('I am being called!');
     }
 
     public function authenticate(Request $request)

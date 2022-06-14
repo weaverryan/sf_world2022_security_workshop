@@ -21,6 +21,9 @@ security:
             lazy: true
             provider: app_user_provider
 
+            custom_authenticators:
+                - App\Security\QueryParamsAuthenticator
+
             login_throttling:
                 max_attempts: 3
 
