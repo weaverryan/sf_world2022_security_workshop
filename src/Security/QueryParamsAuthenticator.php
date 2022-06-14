@@ -8,6 +8,8 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\AuthenticatorInterface;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
+use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordCredentials;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 
 class QueryParamsAuthenticator extends AbstractAuthenticator
@@ -20,16 +22,22 @@ class QueryParamsAuthenticator extends AbstractAuthenticator
 
     public function authenticate(Request $request): Passport
     {
-        dd('authenticate!');
+        $email = $request->query->get('email', '');
+        $password = $request->query->get('password', '');
+
+        return new Passport(
+            new UserBadge($email),
+            new PasswordCredentials($password)
+        );
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        // TODO: Implement onAuthenticationSuccess() method.
+        dd('success', $token);
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
-        // TODO: Implement onAuthenticationFailure() method.
+        dd('failure', $exception);
     }
 }
