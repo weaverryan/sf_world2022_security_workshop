@@ -13,12 +13,13 @@ class JwtAuthenticator extends AbstractAuthenticator
 {
     public function supports(Request $request): ?bool
     {
-        // TODO: Implement supports() method.
+        return $request->headers->has('Authorization');
     }
 
     public function authenticate(Request $request): Passport
     {
-        // TODO: Implement authenticate() method.
+        $authorization = $request->headers->get('Authorization');
+        dd($authorization);
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
