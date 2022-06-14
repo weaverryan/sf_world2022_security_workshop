@@ -17,6 +17,7 @@ class ApiFunctionalTest extends KernelTestCase
         UserFactory::createOne([
             'email' => 'wouter@example.com',
             'plainPassword' => 'symfony'
+            'totpSecret' => 'fake_but_active',
         ]);
 
         $browser = $this->browser()
