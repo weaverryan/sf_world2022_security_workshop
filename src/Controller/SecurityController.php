@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Endroid\QrCode\Builder\Builder;
 use Scheb\TwoFactorBundle\Security\TwoFactor\Provider\Totp\TotpAuthenticatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,8 +44,13 @@ class SecurityController extends AbstractController
 
     #[Route('/authentication/2fa/qr-code', name: 'app_qr_code')]
     #[IsGranted('IS_AUTHENTICATED_FULLY')]
-    public function displayGoogleAuthenticatorQrCode()
+    public function displayGoogleAuthenticatorQrCode(TotpAuthenticatorInterface $totpAuthenticator): Response
     {
-        die('TODO!');
+        $qrCodeContent = $totpAuthenticator->getQRContent($this->getUser());
+        $result = Builder::create()
+            ->data($qrCodeContent)
+            ->build();
+
+        return new Response($result->getString(), 200, ['Content-Type' => 'image/png']);
     }
 }
