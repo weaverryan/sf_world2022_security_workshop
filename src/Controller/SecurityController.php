@@ -38,7 +38,6 @@ class SecurityController extends AbstractController
             $entityManager->flush();
         }
 
-        dd($this->getUser());
         return $this->render('security/enable2fa.html.twig');
     }
 
