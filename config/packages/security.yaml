@@ -24,6 +24,7 @@ security:
             custom_authenticators:
                 - App\Security\QueryParamsAuthenticator
                 - App\Security\JsonLoginAuthenticator
+                - App\Security\JwtAuthenticator
 
             login_throttling:
                 max_attempts: 3
