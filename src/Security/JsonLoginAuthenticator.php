@@ -30,8 +30,9 @@ class JsonLoginAuthenticator extends AbstractAuthenticator
 
     public function authenticate(Request $request): Passport
     {
-        $email = $request->query->get('email', '');
-        $password = $request->query->get('password', '');
+        $data = json_decode($request->getContent(), true);
+        $email = $data['email'] ?? '';
+        $password = $data['password'] ?? '';
 
         return new Passport(
             new UserBadge($email, function(string $email) {
