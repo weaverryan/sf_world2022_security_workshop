@@ -14,12 +14,13 @@ class QueryParamsAuthenticator extends AbstractAuthenticator
 {
     public function supports(Request $request): ?bool
     {
-        dd('I am being called!');
+        return $request->query->has('email')
+            && $request->query->has('password');
     }
 
     public function authenticate(Request $request)
     {
-        // TODO: Implement authenticate() method.
+        dd('authenticate!');
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
