@@ -25,8 +25,7 @@ class JsonLoginAuthenticator extends AbstractAuthenticator
 
     public function supports(Request $request): ?bool
     {
-        return $request->query->has('email')
-            && $request->query->has('password');
+        return $request->getPathInfo() === '/api/login';
     }
 
     public function authenticate(Request $request): Passport

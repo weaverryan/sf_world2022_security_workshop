@@ -14,4 +14,10 @@ class ApiController extends AbstractController
     {
         return $this->json($this->getUser());
     }
+
+    #[Route('/api/login', name: 'api_login', methods: ['POST'])]
+    public function apiLogin()
+    {
+        throw new \Exception('This will never be executed: intercepted by JsonLoginAuthenticator.');
+    }
 }
